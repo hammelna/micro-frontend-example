@@ -1,7 +1,343 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-  }
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"home": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"inlineTemplate": true,
+					"inlineStyle": true,
+					"style": "scss",
+					"skipTests": true
+				},
+				"@schematics/angular:class": {
+					"skipTests": true
+				},
+				"@schematics/angular:directive": {
+					"skipTests": true
+				},
+				"@schematics/angular:guard": {
+					"skipTests": true
+				},
+				"@schematics/angular:interceptor": {
+					"skipTests": true
+				},
+				"@schematics/angular:pipe": {
+					"skipTests": true
+				},
+				"@schematics/angular:resolver": {
+					"skipTests": true
+				},
+				"@schematics/angular:service": {
+					"skipTests": true
+				}
+			},
+			"root": "projects/home",
+			"sourceRoot": "projects/home/src",
+			"prefix": "rb",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/home",
+						"index": "projects/home/src/index.html",
+						"main": "projects/home/src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/home/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/home/src/favicon.ico",
+							"projects/home/src/assets"
+						],
+						"styles": [
+							"projects/home/src/styles.scss"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/home/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/home/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "home:build:production",
+							"extraWebpackConfig": "projects/home/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "home:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4200,
+						"publicHost": "http://localhost:4200",
+						"extraWebpackConfig": "projects/home/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "home:build",
+						"extraWebpackConfig": "projects/home/webpack.config.js"
+					}
+				}
+			}
+		},
+		"micro": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"inlineTemplate": true,
+					"inlineStyle": true,
+					"style": "scss",
+					"skipTests": true
+				},
+				"@schematics/angular:class": {
+					"skipTests": true
+				},
+				"@schematics/angular:directive": {
+					"skipTests": true
+				},
+				"@schematics/angular:guard": {
+					"skipTests": true
+				},
+				"@schematics/angular:interceptor": {
+					"skipTests": true
+				},
+				"@schematics/angular:pipe": {
+					"skipTests": true
+				},
+				"@schematics/angular:resolver": {
+					"skipTests": true
+				},
+				"@schematics/angular:service": {
+					"skipTests": true
+				}
+			},
+			"root": "projects/micro",
+			"sourceRoot": "projects/micro/src",
+			"prefix": "rb",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/micro",
+						"index": "projects/micro/src/index.html",
+						"main": "projects/micro/src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/micro/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/micro/src/favicon.ico",
+							"projects/micro/src/assets"
+						],
+						"styles": [
+							"projects/micro/src/styles.scss"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/micro/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/micro/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "micro:build:production",
+							"extraWebpackConfig": "projects/micro/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "micro:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4201,
+						"publicHost": "http://localhost:4201",
+						"extraWebpackConfig": "projects/micro/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "micro:build",
+						"extraWebpackConfig": "projects/micro/webpack.config.js"
+					}
+				}
+			}
+		},
+		"style-guide": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"inlineTemplate": true,
+					"inlineStyle": true,
+					"style": "scss",
+					"skipTests": true
+				},
+				"@schematics/angular:class": {
+					"skipTests": true
+				},
+				"@schematics/angular:directive": {
+					"skipTests": true
+				},
+				"@schematics/angular:guard": {
+					"skipTests": true
+				},
+				"@schematics/angular:interceptor": {
+					"skipTests": true
+				},
+				"@schematics/angular:pipe": {
+					"skipTests": true
+				},
+				"@schematics/angular:resolver": {
+					"skipTests": true
+				},
+				"@schematics/angular:service": {
+					"skipTests": true
+				}
+			},
+			"root": "projects/style-guide",
+			"sourceRoot": "projects/style-guide/src",
+			"prefix": "rb",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/style-guide",
+						"index": "projects/style-guide/src/index.html",
+						"main": "projects/style-guide/src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/style-guide/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/style-guide/src/favicon.ico",
+							"projects/style-guide/src/assets"
+						],
+						"styles": [
+							"projects/style-guide/src/styles.scss"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/style-guide/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/style-guide/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "style-guide:build:production",
+							"extraWebpackConfig": "projects/style-guide/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "style-guide:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4202,
+						"publicHost": "http://localhost:4202",
+						"extraWebpackConfig": "projects/style-guide/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "style-guide:build",
+						"extraWebpackConfig": "projects/style-guide/webpack.config.js"
+					}
+				}
+			}
+		}
+	}
 }

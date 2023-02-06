@@ -1,27 +1,11 @@
 # Simplyreboot
+Setting up the project from start to finish
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Create the workspace: `npx ng new simplyreboot --no-create-application --minimal --prefix sr --routing --style scss`
+    - these styles don't appear to have an effect on an empty workspace
+    - just do `npx ng new simplyreboot` and add the rest to the app creation
+2. Create the home/shell. `ng generate app home --routing --style scss --minimal --prefix rb`
+3. Create one of the microfrontends, micro. `ng generate app micro --routing --style scss --minimal --prefix rb`
+4. Create another microfrontend style-guide. `ng generate app style-guide --routing --style scss --minimal --prefix rb`
+5. Use ng add to add/run angular architects package `ng add @angular-architects/module-federation --project home --type dynamic-host --port 4200`
+6. Run it again to add a remote
